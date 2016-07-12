@@ -903,6 +903,8 @@ class DB(object):
                     elif arg=="hostname":
                         arg = "host"
                     creds[arg] = value
+            creds['charset'] = 'utf8'
+            creds['use_unicode'] = True
             self.con = mysql_connect(**creds)
             self.con.autocommit(True)
             self.cur = self.con.cursor()
